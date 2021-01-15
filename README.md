@@ -1,34 +1,26 @@
-# Skeleton of a node.js / typescript / express / postgres app
+# Pasos para ejecutar el servidor
 
-## Install Node / NPM
-https://docs.npmjs.com/getting-started/installing-node
+## Crear la base de datos que utilizará el servidor
 
-## Install TypeScript
-https://www.npmjs.com/package/typescript
+## Crear el archivo .env en la raíz del proyecto y configurar las variables del proyecto
+Puede utilizar el archivo .env.example, ubicado también en la raíz del proyecto, y sustituir los valores de ejemplo por los valores reales:
 
-## Create table in your Postgres DB: 
-create table test
-(testcolumn varchar(20));
+PORT: El puerto en el que trabajará el servidor
+DB_USER: El usuario de base de datos
+DB: El nombre de la base de datos
+DB_PASS: Contraseña para ingresar a la base de datos
+DB_HOST: Host de la base de datos
+DB_PORT= Puerto de la base de datos
+DB_MAX_CLIENTS: Máxima cantidad de conexiones simultáneas a la base de datos (Para el pool)
+DB_IDLE_TIMEOUT_MS: Duración máxima de una petición a la base de datos antes de fallar por timeout
 
-## Download this repo
-download and run `npm install`
+## Scripts disponibles
 
-## Set the following ENV VARs for your DB Connections:
-`export DB_USER=''  DB='' DB_PASS='' DB_HOST='' DB_PORT='' DB_MAX_CLIENTS='' DB_IDLE_TIMEOUT_MS=''`
+### `npm start`
+Ejecuta el servidor (El código primero debe ser compilado para que pueda funcionar)
 
-this can also be done by creating a `.env` file in the root of this project see `.env.example` for a reference
+### `npm build`
+Compila el código typescript a javascript dentro de la carpeta /build para que pueda ser ejecutado
 
-## Transpile TypeScript to the build folder
-run `tsc`
-
-you can adjust transpiling settings in tsconfig.json
-
-## Run your built node app
-`node build/app.js`
-
-## Routes
-http://localhost:3000/healthcheck and root return healthcheck
-
-http://localhost:3000/servertime - returns servertime
-
-http://localhost:3000/transaction - deletes then inserts into your DB using a transaction
+### `npm rebuild`
+Compila el código y posteriormente se ejecuta
